@@ -43,7 +43,8 @@
         .then((result) => {
           const user = result.user;
           document.getElementById("user-info").innerText = "Welcome, " + user.displayName;
-        })
+        })window.location.href = "home.html";
+
         .catch((error) => {
           console.log(error.message);
         });
