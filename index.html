@@ -1,12 +1,14 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>KidnaAI - Login</title>
 
-  <!-- Firebase App -->
+  <!-- Firebase App SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
 
-  <!-- Firebase Authentication -->
+  <!-- Firebase Auth SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
 
   <script>
@@ -33,15 +35,15 @@
 
   <p id="user-info"></p>
 
-  <!-- ✅ Script Section -->
   <script>
-    // Login function
+    // ✅ Google Login
     function googleLogin() {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider)
         .then((result) => {
           const user = result.user;
           document.getElementById("user-info").innerText = "Welcome, " + user.displayName;
+          // Redirect to home page
           window.location.href = "home.html";
         })
         .catch((error) => {
@@ -49,7 +51,7 @@
         });
     }
 
-    // Logout function
+    // ✅ Logout
     function logout() {
       firebase.auth().signOut()
         .then(() => {
@@ -60,4 +62,3 @@
 
 </body>
 </html>
-
