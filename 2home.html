@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kidna AI - Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+      padding: 20px;
+    }
+    #chat-box {
+      width: 100%;
+      height: 400px;
+      border: 1px solid #333;
+      padding: 10px;
+      overflow-y: scroll;
+      margin-bottom: 10px;
+      background-color: #1e1e1e;
+    }
+    #user-input {
+      width: 80%;
+      padding: 10px;
+    }
+    #send-btn {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>👋 Welcome to Kidna AI Chat</h2>
+
+  <div id="chat-box"></div>
+
+  <input type="text" id="user-input" placeholder="Type your message..." />
+  <button id="send-btn">Send</button>
+
+  <script>
+    const chatBox = document.getElementById("chat-box");
+    const input = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    sendBtn.onclick = async () => {
+      const userText = input.value;
+      if (!userText) return;
+
+      chatBox.innerHTML += `<p><strong>You:</strong> ${userText}</p>`;
+      input.value = "";
+
+      // Dummy bot reply (will be replaced with real AI later)
+      chatBox.innerHTML += `<p><strong>Kidna AI:</strong> Thinking...</p>`;
+    };
+  </script>
+
+</body>
+</html>
