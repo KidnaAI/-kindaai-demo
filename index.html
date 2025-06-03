@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KidnaAI - Social Media + AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>KidnaAI</h1>
+    <nav>
+      <button onclick="toggleMode()">🌗 Mode</button>
+      <a href="#">Home</a>
+      <a href="#">Profile</a>
+      <a href="#">Kidna AI</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Welcome to KidnaAI</h2>
+    <p>This is a simple Facebook-style social + AI interface.</p>
+    <div id="chat-container">
+      <h3>Chat with Kidna AI</h3>
+      <textarea id="userInput" placeholder="Type your message..."></textarea>
+      <button onclick="sendMessage()">Send</button>
+      <div id="chatBox"></div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
