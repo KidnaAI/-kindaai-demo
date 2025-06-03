@@ -1,31 +1,67 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KidnaAI - Social Media + AI</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>KidnaAI - Login</title>
+
+  <!-- Firebase App -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+
+  <script>
+    // ✅ Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAlpG_CEtoxOzSKfqKXR5ieV9EKCvQd9oE",
+      authDomain: "kidnaai365.firebaseapp.com",
+      projectId: "kidnaai365",
+      storageBucket: "kidnaai365.firebasestorage.app",
+      messagingSenderId: "171699926518",
+      appId: "1:171699926518:web:2f5b8e7bd56c9db38cc3d7"
+    };
+
+    // ✅ Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </head>
 <body>
-  <header>
-    <h1>KidnaAI</h1>
-    <nav>
-      <button onclick="toggleMode()">🌗 Mode</button>
-      <a href="#">Home</a>
-      <a href="#">Profile</a>
-      <a href="#">Kidna AI</a>
-    </nav>
-  </header>
-  <main>
-    <h2>Welcome to KidnaAI</h2>
-    <p>This is a simple Facebook-style social + AI interface.</p>
-    <div id="chat-container">
-      <h3>Chat with Kidna AI</h3>
-      <textarea id="userInput" placeholder="Type your message..."></textarea>
-      <button onclick="sendMessage()">Send</button>
-      <div id="chatBox"></div>
-    </div>
-  </main>
-  <script src="script.js"></script>
+
+  <h1>Kidna AI</h1>
+
+  <button onclick="googleLogin()">Login with Google</button>
+  <button onclick="logout()">Logout</button>
+
+  <p id="user-info"></p>
+
+  <!-- ✅ Script Link -->
+  <script>
+    // Login function
+    function googleLogin() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user;
+          document.getElementById("user-info").innerText = "Welcome, " + user.displayName;
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }
+
+    // Logout function
+    function logout() {
+      firebase.auth().signOut()
+        .then(() => {
+          document.getElementById("user-info").innerText = "You are logged out.";
+        });
+    }
+  </script>
+
 </body>
 </html>
+
+
+
+
+
