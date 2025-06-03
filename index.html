@@ -34,16 +34,23 @@
 
   <p id="user-info"></p>
 
-  <!-- ✅ Script Link -->
-  <script>
-    // Login function
-    function googleLogin() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider)
-        .then((result) => {
-          const user = result.user;
-          document.getElementById("user-info").innerText = "Welcome, " + user.displayName;window.location.href = "home.html
-        })
+ <!-- ✅ Script Link -->
+<script>
+  // Login function
+  function googleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        document.getElementById("user-info").innerText = "Welcome, " + user.displayName;
+        window.location.href = "home.html";
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+</script>
+
 
         .catch((error) => {
           console.log(error.message);
